@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ovo RedSun — 1:1 Clone (Tight Glow)</title>
+  <meta name="description" content="Pixel-accurate static clone with hero video and tighter interactive glow." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- SITE-WIDE INTERACTIVE GLOW -->
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <a href="#" class="brand">
+      <img src="assets/logo.svg" alt="Brand logo" class="logo" />
+      <span class="brand-text">OVO REDSUN</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="pill">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO (video) -->
+  <section class="hero" id="home" aria-label="Hero">
+    <div class="video-wrap">
+      <!-- Replace hero.mp4 with your footage; keep poster.jpg for instant paint -->
+      <video id="bgvid" class="bgvid" playsinline autoplay muted loop poster="assets/poster.jpg">
+        <source src="assets/hero.mp4" type="video/mp4">
+      </video>
+      <div class="vignette"></div>
+    </div>
+    <div class="hero-inner">
+      <h1 class="display">We craft moving<br/>visual experiences.</h1>
+      <p class="sub">Direction • Motion • Digital</p>
+      <div class="cta">
+        <a href="#work" class="btn primary">See Work</a>
+        <a href="#contact" class="btn ghost">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE STRIP -->
+  <section class="strip" role="presentation">
+    <div class="strip-inner">
+      <div class="strip-item">Art Direction</div>
+      <div class="dot"></div>
+      <div class="strip-item">3D / Motion</div>
+      <div class="dot"></div>
+      <div class="strip-item">Interactive</div>
+      <div class="dot"></div>
+      <div class="strip-item">Brand</div>
+    </div>
+  </section>
+
+  <!-- WORK GRID -->
+  <section class="section" id="work" aria-label="Work">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="h2">Selected Work</h2>
+        <a href="#contact" class="link">Request Reel →</a>
+      </div>
+      <div class="grid">
+        <a class="card obs" href="#" aria-label="Project 1">
+          <div class="card-media ratio-16x9 shimmer"></div>
+          <div class="card-meta">
+            <span>Campaign / 2025</span>
+            <h3>Red Sand</h3>
+          </div>
+        </a>
+        <a class="card obs" href="#">
+          <div class="card-media ratio-16x9 shimmer"></div>
+          <div class="card-meta">
+            <span>Title Sequence</span>
+            <h3>Neon Dreams</h3>
+          </div>
+        </a>
+        <a class="card obs" href="#">
+          <div class="card-media ratio-4x5 shimmer"></div>
+          <div class="card-meta">
+            <span>Interactive</span>
+            <h3>Meta Dawn</h3>
+          </div>
+        </a>
+        <a class="card obs" href="#">
+          <div class="card-media ratio-1x1 shimmer"></div>
+          <div class="card-meta">
+            <span>Spot</span>
+            <h3>City Pulse</h3>
+          </div>
+        </a>
+        <a class="card obs" href="#">
+          <div class="card-media ratio-21x9 shimmer"></div>
+          <div class="card-meta">
+            <span>Short Film</span>
+            <h3>Static Echo</h3>
+          </div>
+        </a>
+        <a class="card obs" href="#">
+          <div class="card-media ratio-16x9 shimmer"></div>
+          <div class="card-meta">
+            <span>Product</span>
+            <h3>Silk / IX</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / SPLIT -->
+  <section class="section split" id="about" aria-label="About">
+    <div class="container split-grid">
+      <div class="split-media shimmer"></div>
+      <div class="split-copy">
+        <h2 class="h2">Studio</h2>
+        <p>Independent direction & motion practice blending cinematic language with interactive craft. We partner with brands and studios to shape moving identities, launch moments and immersive touchpoints.</p>
+        <div class="kpi-row">
+          <div class="kpi"><span class="num">60+</span><span class="cap">Projects</span></div>
+          <div class="kpi"><span class="num">12</span><span class="cap">Awards</span></div>
+          <div class="kpi"><span class="num">8</span><span class="cap">Countries</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact" aria-label="Contact">
+    <div class="container contact-grid">
+      <div>
+        <h2 class="h2">Let's work</h2>
+        <p class="muted">hello@studio.com<br/>Mon–Fri / 10:00–18:00 CET</p>
+        <div class="social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Vimeo">VI</a>
+          <a href="#" aria-label="X">X</a>
+        </div>
+      </div>
+      <form class="form" name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact">
+        <label> Name <input name="name" required></label>
+        <label> Email <input type="email" name="email" required></label>
+        <label> Message <textarea name="message" rows="5"></textarea></label>
+        <button class="btn primary" type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container foot">
+      <span class="muted">© 2025 Ovo RedSun — Clone</span>
+      <a href="#home" class="to-top">Top ↑</a>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
