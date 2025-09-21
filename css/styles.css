@@ -58,54 +58,85 @@ input:focus,textarea:focus{border-color:#2a374b}
 .to-top{color:var(--muted)} .to-top:hover{color:var(--ink)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .reveal{opacity:0;transform:translateY(8px)} .reveal.in{opacity:1;transform:none;transition:.6s ease}
-/* Navbar */
+/* Navbar Base */
 .navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.95); /* translucent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* subtle line */
+}
+
+/* Flex wrapper */
+.nav-wrap {
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 60px;
-  background: transparent;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 100;
 }
 
-.navbar .logo {
+/* Logo */
+.logo {
   font-size: 1.5rem;
-  font-weight: bold;
-  color: white;
-}
-
-.navbar .nav-links {
+  font-weight: 700;
+  color: #fff;
   display: flex;
-  gap: 30px;
+  align-items: center;
+}
+.logo .dot {
+  color: orange;
+  margin-left: 4px;
+  font-size: 1.8rem;
 }
 
-.navbar .nav-links a {
-  color: white;
+/* Navigation */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+.nav-links a {
+  color: #ddd;
   text-decoration: none;
   font-weight: 500;
+  position: relative;
   transition: color 0.3s ease;
 }
-
-.navbar .nav-links a:hover {
-  color: gold;
+.nav-links a:hover {
+  color: #fff;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: orange;
+  left: 0;
+  bottom: -6px;
+  transition: width 0.3s ease;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
 }
 
-/* CTA button */
-.cta-button {
-  padding: 10px 20px;
-  background-color: gold;
-  color: black;
-  font-weight: bold;
+/* CTA Button */
+.cta-btn {
+  background: linear-gradient(90deg, #ff7a18, #ffb347);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
   text-decoration: none;
-  border-radius: 25px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 120, 20, 0.5);
+  transition: all 0.3s ease;
 }
-
-.cta-button:hover {
-  background-color: white;
-  color: black;
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(255, 150, 50, 0.7);
 }
