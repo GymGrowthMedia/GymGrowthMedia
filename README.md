@@ -1,10 +1,13 @@
-# OVO Home — Desktop Clone (Netlify-ready)
-- `index.html`: Home structure (nav, hero w/ interactive canvas, features strip, work grid, split about, contact, footer)
-- `css/styles.css`: Desktop-first styles, cursor glow
-- `js/script.js`: Glow, hero canvas, scroll, burger, cart overlay
-- `assets/images`: Placeholders to replace later
-- `assets/icons/logo.svg`: Placeholder logo
+# GYMIX — Base Template (Home + Placeholders)
 
-Deploy: copy to your GitHub repo and push (Netlify auto-deploys).
-Preview locally: VS Code Live Server → Open `index.html`.
-Edit hero text: `index.html` → `.hero-inner`.
+Deploy-ready static site matching the Webflow template structure, branded as **GYMIX**.
+
+## Contents
+- index.html — Home (Header, Hero with halo + cursor glow, scroll arrow, Footer)
+- features.html / about.html / pricing.html / blog.html / contact.html / cart.html — placeholders
+- style.css — locked fonts, colors, spacing
+- script.js — halo + cursor glow + scroll indicator
+- assets/ — favicon.png (your logo), hero-sample.jpg, arrow-down.svg
+
+## Deploy
+Push everything in `gymix-site/` to your repo root. Netlify will auto-publish on push.
