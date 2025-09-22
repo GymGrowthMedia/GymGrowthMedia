@@ -1,13 +1,23 @@
-# GYMIX — Base Template (Home + Placeholders)
+# GYMIX — Home Section (Header + Hero + Halo + Orb)
 
-Deploy-ready static site matching the Webflow template structure, branded as **GYMIX**.
+This is a deploy-ready Home section built to match the template look/feel.
 
-## Contents
-- index.html — Home (Header, Hero with halo + cursor glow, scroll arrow, Footer)
-- features.html / about.html / pricing.html / blog.html / contact.html / cart.html — placeholders
-- style.css — locked fonts, colors, spacing
-- script.js — halo + cursor glow + scroll indicator
-- assets/ — favicon.png (your logo), hero-sample.jpg, arrow-down.svg
+## Structure
+- index.html
+- css/style.css
+- js/script.js
+- assets/favicon.png (and logo.png placeholder)
 
-## Deploy
-Push everything in `gymix-site/` to your repo root. Netlify will auto-publish on push.
+## How to use
+1) Copy these files into your repo (replace existing).
+2) Commit & push:
+   git add .
+   git commit -m "Home: header+hero with halo & cursor orb"
+   git push
+3) Netlify will auto-deploy your site.
+
+## Edit later
+- Change hero texts in index.html
+- Change Calendly link in the header CTA in index.html
+- Tweak halo/orange glow in js/script.js (search for 'orange glow')
+- Favicon lives at assets/favicon.png

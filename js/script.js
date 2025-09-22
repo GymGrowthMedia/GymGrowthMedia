@@ -1,23 +1,63 @@
-// Cursor glow
-let targetX=innerWidth/2,targetY=innerHeight/2,currentX=targetX,currentY=targetY;
-const root=document.documentElement;(function raf(){currentX+=(targetX-currentX)*.16;currentY+=(targetY-currentY)*.16;root.style.setProperty('--x',currentX+'px');root.style.setProperty('--y',currentY+'px');requestAnimationFrame(raf)})();
-addEventListener('mousemove',e=>{targetX=e.clientX;targetY=e.clientY});
-// Hero interactive canvas
-(function(){const c=document.getElementById('hero-canvas');if(!c)return;const ctx=c.getContext('2d');let w,h,dpr=window.devicePixelRatio||1;let mx=0,my=0,sc=0,blobs=[];
-function size(){w=innerWidth;h=innerHeight;c.width=w*dpr;c.height=h*dpr;c.style.width=w+'px';c.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0)}size();addEventListener('resize',size);
-function init(n=6){blobs=[];for(let i=0;i<n;i++){blobs.push({x:Math.random()*w,y:Math.random()*h,r:120+Math.random()*140,hue:22+Math.random()*8,a:.12+Math.random()*.12,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18})}}init();
-addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});addEventListener('scroll',()=>{sc=scrollY});
-function draw(){ctx.clearRect(0,0,w,h);ctx.fillStyle='#0A0E14';ctx.fillRect(0,0,w,h);ctx.globalCompositeOperation='lighter';
-for(const b of blobs){b.x+=b.vx+(mx-w/2)*.0005+(sc*.015)*Math.sin(b.hue);b.y+=b.vy+(my-h/2)*.0005+(sc*.012)*Math.cos(b.hue);
-if(b.x<-b.r)b.x=w+b.r;if(b.x>w+b.r)b.x=-b.r;if(b.y<-b.r)b.y=h+b.r;if(b.y>h+b.r)b.y=-b.r;const g=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
-g.addColorStop(0,`hsla(${b.hue},100%,55%,${b.a})`);g.addColorStop(1,`hsla(${b.hue},100%,55%,0)`);ctx.fillStyle=g;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();}
-ctx.globalCompositeOperation='source-over';requestAnimationFrame(draw)}draw();})();
-// Reveal
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:.2});
-document.querySelectorAll('.obs').forEach(el=>{el.classList.add('reveal');obs.observe(el)});
-// Cart overlay
-const cartBtn=document.getElementById('cartBtn');const cartPanel=document.getElementById('cartPanel');const closeCart=document.getElementById('closeCart');const backdrop=document.getElementById('cartBackdrop');
-function openCart(){cartPanel.classList.add('open');backdrop.hidden=false;document.body.style.overflow='hidden'}function closeCartFn(){cartPanel.classList.remove('open');backdrop.hidden=true;document.body.style.overflow=''}
-if(cartBtn)cartBtn.addEventListener('click',openCart);if(closeCart)closeCart.addEventListener('click',closeCartFn);if(backdrop)backdrop.addEventListener('click',closeCartFn);
-// Smooth anchor scroll
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){e.preventDefault();document.querySelector(id)?.scrollIntoView({behavior:'smooth'})}}));
+// Cursor glow follows mouse
+const glow = document.getElementById('cursor-glow');
+addEventListener('pointermove', e => { glow.style.left = e.clientX+'px'; glow.style.top = e.clientY+'px'; }, {passive:true});
+
+// Halo canvas drawing & scroll animation
+const halo = document.getElementById('halo');
+const ctx = halo.getContext('2d', { alpha:true });
+let vw=0, vh=0, dpr=Math.max(1, devicePixelRatio||1);
+
+function resize(){
+  vw = halo.clientWidth; vh = halo.clientHeight;
+  halo.width = Math.floor(vw*dpr); halo.height = Math.floor(vh*dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  draw();
+}
+addEventListener('resize', resize);
+
+function prog(){
+  const hero = document.querySelector('.hero');
+  const r = hero.getBoundingClientRect();
+  const total = Math.max(1, r.height - innerHeight*0.3);
+  const seen = Math.min(Math.max(-r.top,0), total);
+  return seen/total;
+}
+const ease = t => 1 - Math.pow(1-t,3);
+
+function draw(){
+  ctx.clearRect(0,0,vw,vh);
+  // vignette
+  const vg = ctx.createRadialGradient(vw*0.5, vh*0.2, 80, vw*0.5, vh*0.2, Math.max(vw,vh));
+  vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1,'rgba(0,0,0,.35)');
+  ctx.fillStyle = vg; ctx.fillRect(0,0,vw,vh);
+
+  // rim
+  const cx=vw*0.5, baseY=vh*0.92, radius=Math.max(vw,vh)*0.85;
+  ctx.beginPath(); ctx.arc(cx, baseY, radius, Math.PI, 2*Math.PI);
+  const rim = ctx.createLinearGradient(0, baseY-50, 0, baseY+40);
+  rim.addColorStop(0,'rgba(255,255,255,.8)'); rim.addColorStop(1,'rgba(255,255,255,0)');
+  ctx.strokeStyle = rim; ctx.lineWidth=36; ctx.shadowColor='rgba(255,255,255,.22)'; ctx.shadowBlur=24; ctx.stroke();
+
+  // orange glow
+  const t = ease(prog());
+  const gx = cx + (vw*0.28)*t;
+  const gy = baseY - (vh*0.32)*(1-t);
+  const gr = Math.max(vw,vh)*0.19;
+  const g = ctx.createRadialGradient(gx,gy,gr*0.1,gx,gy,gr);
+  g.addColorStop(0,'rgba(255,152,74,.55)');
+  g.addColorStop(0.4,'rgba(255,140,60,.35)');
+  g.addColorStop(1,'rgba(255,140,60,0)');
+  ctx.globalCompositeOperation='screen';
+  ctx.fillStyle=g; ctx.beginPath(); ctx.arc(gx,gy,gr,0,Math.PI*2); ctx.fill();
+  ctx.globalCompositeOperation='source-over';
+
+  // fade behind dashboard
+  const dash = document.querySelector('.dash-wrap');
+  const top = dash.getBoundingClientRect().top;
+  const fade = top < innerHeight*0.9 ? Math.min(1, (innerHeight*0.9 - top)/220) : 0;
+  if(fade>0){ ctx.fillStyle = `rgba(11,15,20, ${fade*.9})`; ctx.fillRect(0,0,vw,vh); }
+}
+
+function loop(){ draw(); requestAnimationFrame(loop); }
+resize(); loop();
+addEventListener('scroll', draw, {passive:true});

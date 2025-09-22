@@ -3,26 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GYMIX — Creative Studio</title>
+  <title>GYMIX — Home</title>
 
-  <!-- Favicon (already in assets from earlier; replace if needed) -->
   <link rel="icon" href="assets/favicon.png" type="image/png" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <div id="cursor-glow" aria-hidden="true"></div>
 
-  <!-- Cursor glow (follows mouse across the whole page) -->
-  <div id="cursor-glow"></div>
-
-  <!-- Sticky transparent/blurred header -->
   <header class="site-header">
     <div class="container header-row">
-      <a class="brand" href="#">
+      <a class="brand" href="#home">
         <span class="brand-text">GYMIX</span>
         <span class="brand-dot" aria-hidden="true"></span>
       </a>
@@ -34,7 +28,7 @@
         <a class="nav-link" href="#pricing">Pricing</a>
         <a class="nav-link" href="#blog">Blog</a>
         <a class="nav-link" href="#contact">Contact</a>
-        <a class="nav-link cart" href="#cart" aria-label="Cart">Cart <span class="cart-count">(0)</span></a>
+        <a class="nav-link cart" href="#cart">Cart <span class="cart-count">(0)</span></a>
       </nav>
 
       <a class="cta" href="https://calendly.com/gymgrowthmedia/free-gym-marketing-audit-call" target="_blank" rel="noopener">
@@ -46,9 +40,7 @@
     </div>
   </header>
 
-  <!-- Hero / Home -->
   <main id="home" class="hero">
-    <!-- Canvas halo (animated on scroll) -->
     <canvas id="halo" aria-hidden="true"></canvas>
 
     <div class="container hero-inner">
@@ -57,28 +49,19 @@
         <span class="pill pill-muted">Ease Update v0.1</span>
       </div>
 
-      <h1 class="hero-title">
-        We craft moving<br />
-        visual experiences.
-      </h1>
-
-      <p class="hero-sub">
-        Gain clarity and harness the power of your data with GYMIX.
-        Our intuitive dashboard provides real-time analytics.
-      </p>
+      <h1 class="hero-title">Intelligent Solutions Powered by AI.</h1>
+      <p class="hero-sub">Gain clarity and harness the power of your data with GYMIX. Our intuitive dashboard provides real-time analytics and insights you can act on.</p>
 
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#features">Read More</a>
-        <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+        <a class="btn btn-ghost" href="#contact">Book an Audit</a>
       </div>
 
-      <!-- Dashboard placeholder (for the “slides over halo” scroll effect) -->
       <section class="dash-wrap" aria-label="Dashboard preview">
         <div class="dash-card">
           <div class="dash-head">
             <div class="dash-brand">
-              <span class="brand-text">GYMIX</span>
-              <span class="brand-dot"></span>
+              <span class="brand-text">GYMIX</span><span class="brand-dot"></span>
             </div>
             <div class="dash-tabs">
               <span class="tab active">Analytics</span>
@@ -93,26 +76,10 @@
           </div>
 
           <div class="dash-grid">
-            <div class="stat">
-              <div class="stat-label">TOTAL USERS</div>
-              <div class="stat-value">72,350</div>
-              <div class="spark"><span class="up">+6.9%</span></div>
-            </div>
-            <div class="stat">
-              <div class="stat-label">SESSIONS</div>
-              <div class="stat-value">29.4%</div>
-              <div class="spark"><span class="down">−12.5%</span></div>
-            </div>
-            <div class="stat">
-              <div class="stat-label">AVG. CLICK RATE</div>
-              <div class="stat-value">56.8%</div>
-              <div class="spark"><span class="up">+19.3%</span></div>
-            </div>
-            <div class="stat">
-              <div class="stat-label">PAGEVIEWS</div>
-              <div class="stat-value">92,913</div>
-              <div class="spark"><span class="down">−12.5%</span></div>
-            </div>
+            <div class="stat"><div class="stat-label">TOTAL USERS</div><div class="stat-value">72,350</div><div class="spark"><span class="up">+6.9%</span></div></div>
+            <div class="stat"><div class="stat-label">SESSIONS</div><div class="stat-value">29.4%</div><div class="spark"><span class="down">−12.5%</span></div></div>
+            <div class="stat"><div class="stat-label">AVG. CLICK RATE</div><div class="stat-value">56.8%</div><div class="spark"><span class="up">+19.3%</span></div></div>
+            <div class="stat"><div class="stat-label">PAGEVIEWS</div><div class="stat-value">92,913</div><div class="spark"><span class="down">−12.5%</span></div></div>
 
             <div class="panel panel-wide">
               <div class="panel-title">Import data into Front Dashboard</div>
@@ -133,7 +100,6 @@
     </div>
   </main>
 
-  <!-- Placeholder anchors for nav -->
   <section id="features" class="section placeholder"></section>
   <section id="about" class="section placeholder"></section>
   <section id="pricing" class="section placeholder"></section>
@@ -141,6 +107,6 @@
   <section id="contact" class="section placeholder"></section>
   <section id="cart" class="section placeholder"></section>
 
-  <script src="js/scripts.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
