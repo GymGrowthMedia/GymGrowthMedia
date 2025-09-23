@@ -1,23 +1,22 @@
-# GYMIX — Home Section (Header + Hero + Halo + Orb)
+# TURA‑Lite (Minimal Dark Portfolio)
 
-This is a deploy-ready Home section built to match the template look/feel.
+A lightweight one-page site inspired by the “TURA” shots you shared. Built for quick deployment on **Netlify**.
 
 ## Structure
-- index.html
-- css/style.css
-- js/script.js
-- assets/favicon.png (and logo.png placeholder)
+- `index.html` – markup with 3 sections (Hero, Projects, Contact)
+- `styles.css` – dark theme + layout
+- `script.js` – smooth scrolling
+- `assets/` – placeholder images + favicon
 
-## How to use
-1) Copy these files into your repo (replace existing).
-2) Commit & push:
-   git add .
-   git commit -m "Home: header+hero with halo & cursor orb"
-   git push
-3) Netlify will auto-deploy your site.
+## Deploy (Netlify)
+1. Zip this folder or push it to a GitHub repo.
+2. On Netlify: **Add new site** → **Deploy manually** (drag the zip) or **Import from Git** (select the repo).
+3. Done. The contact form uses a simple HTML form. To collect submissions on Netlify, keep the `netlify` attribute on the `<form>` tag and enable forms in site settings.
 
-## Edit later
-- Change hero texts in index.html
-- Change Calendly link in the header CTA in index.html
-- Tweak halo/orange glow in js/script.js (search for 'orange glow')
-- Favicon lives at assets/favicon.png
+## Customize
+- Replace `assets/placeholder-*.jpg` with your project shots.
+- Edit text (brand, links, contact info) in `index.html`.
+- Colors and spacing live in `styles.css` (CSS variables at the top).
+
+---
+Made to be clean, fast, and easy to tweak.

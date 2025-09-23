@@ -1,112 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GYMIX — Home</title>
-
-  <link rel="icon" href="assets/favicon.png" type="image/png" />
-
+  <title>TURA – Minimal Portfolio</title>
+  <meta name="description" content="Minimal dark portfolio template (TURA-style) – Projects & Contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
 <body>
-  <div id="cursor-glow" aria-hidden="true"></div>
-
-  <header class="site-header">
-    <div class="container header-row">
-      <a class="brand" href="#home">
-        <span class="brand-text">GYMIX</span>
-        <span class="brand-dot" aria-hidden="true"></span>
-      </a>
-
-      <nav class="main-nav" aria-label="Primary">
-        <a class="nav-link active" href="#home">Home</a>
-        <a class="nav-link" href="#features">Features</a>
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#pricing">Pricing</a>
-        <a class="nav-link" href="#blog">Blog</a>
-        <a class="nav-link" href="#contact">Contact</a>
-        <a class="nav-link cart" href="#cart">Cart <span class="cart-count">(0)</span></a>
-      </nav>
-
-      <a class="cta" href="https://calendly.com/gymgrowthmedia/free-gym-marketing-audit-call" target="_blank" rel="noopener">
-        Book an Audit
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M5 12h12M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
+  <!-- Navigation -->
+  <header class="nav">
+    <div class="brand">
+      <span class="brand-stack">
+        <span>TU</span><span>RA</span>
+      </span>
     </div>
+    <nav class="links">
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <main id="home" class="hero">
-    <canvas id="halo" aria-hidden="true"></canvas>
-
-    <div class="container hero-inner">
-      <div class="hero-badges">
-        <span class="pill">Whats New</span>
-        <span class="pill pill-muted">Ease Update v0.1</span>
+  <!-- Hero / Intro -->
+  <section class="section hero" id="home" aria-label="Intro">
+    <div class="hero-center">
+      <div class="hero-small overline">I am</div>
+      <h1 class="hero-title">TURA</h1>
+      <div class="hero-small underline">A Junior<br>Web Designer</div>
+      <div class="side-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Twitter">TW</a>
+        <a href="#" aria-label="Dribbble">DB</a>
       </div>
-
-      <h1 class="hero-title">Intelligent Solutions Powered by AI.</h1>
-      <p class="hero-sub">Gain clarity and harness the power of your data with GYMIX. Our intuitive dashboard provides real-time analytics and insights you can act on.</p>
-
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="#features">Read More</a>
-        <a class="btn btn-ghost" href="#contact">Book an Audit</a>
-      </div>
-
-      <section class="dash-wrap" aria-label="Dashboard preview">
-        <div class="dash-card">
-          <div class="dash-head">
-            <div class="dash-brand">
-              <span class="brand-text">GYMIX</span><span class="brand-dot"></span>
-            </div>
-            <div class="dash-tabs">
-              <span class="tab active">Analytics</span>
-              <span class="tab">Products</span>
-              <span class="tab">Customers</span>
-              <span class="tab">Campaigns</span>
-              <span class="tab">Settings</span>
-            </div>
-            <div class="dash-actions">
-              <button class="chip">Invite users</button>
-            </div>
-          </div>
-
-          <div class="dash-grid">
-            <div class="stat"><div class="stat-label">TOTAL USERS</div><div class="stat-value">72,350</div><div class="spark"><span class="up">+6.9%</span></div></div>
-            <div class="stat"><div class="stat-label">SESSIONS</div><div class="stat-value">29.4%</div><div class="spark"><span class="down">−12.5%</span></div></div>
-            <div class="stat"><div class="stat-label">AVG. CLICK RATE</div><div class="stat-value">56.8%</div><div class="spark"><span class="up">+19.3%</span></div></div>
-            <div class="stat"><div class="stat-label">PAGEVIEWS</div><div class="stat-value">92,913</div><div class="spark"><span class="down">−12.5%</span></div></div>
-
-            <div class="panel panel-wide">
-              <div class="panel-title">Import data into Front Dashboard</div>
-              <div class="panel-sub">See and talk to your users and leads immediately</div>
-              <button class="chip chip-outline">Launch importer</button>
-            </div>
-
-            <div class="panel">
-              <div class="panel-title">Monthly expenses</div>
-              <div class="bars" aria-hidden="true">
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div class="scroll-indicator" aria-hidden="true">scroll</div>
     </div>
-  </main>
+  </section>
 
-  <section id="features" class="section placeholder"></section>
-  <section id="about" class="section placeholder"></section>
-  <section id="pricing" class="section placeholder"></section>
-  <section id="blog" class="section placeholder"></section>
-  <section id="contact" class="section placeholder"></section>
-  <section id="cart" class="section placeholder"></section>
+  <!-- Projects -->
+  <section class="section projects" id="projects" aria-label="Projects">
+    <div class="container">
+      <div class="gallery">
+        <img class="thumb blur-left" src="assets/placeholder-left.jpg" alt="Project thumbnail blurred left">
+        <img class="thumb main" src="assets/placeholder-main.jpg" alt="Main project preview">
+        <img class="thumb blur-right" src="assets/placeholder-right.jpg" alt="Project thumbnail blurred right">
+      </div>
+      <h2 class="project-title">KEET CAFE</h2>
+      <p class="project-desc">Clean, minimal case layout. Replace these placeholders with your real project images and copy.</p>
+      <div class="center">
+        <a class="btn" href="#" role="button">VIEW PROJECT</a>
+      </div>
+    </div>
+  </section>
 
-  <script src="js/script.js"></script>
+  <!-- Contact -->
+  <section class="section contact" id="contact" aria-label="Contact">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <h2>CONTACT</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at ipsum at arcu varius posuere.</p>
+        <div class="info-block">
+          <h3>Address</h3>
+          <p>123 Minimal Ave<br>Paris, FR 75001</p>
+        </div>
+        <div class="info-block">
+          <h3>Phone</h3>
+          <p>+33 6 12 34 56 78</p>
+        </div>
+        <div class="info-block">
+          <h3>Email</h3>
+          <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+        </div>
+      </div>
+      <form class="contact-form" netlify>
+        <h2>CONTACT FORM</h2>
+        <label>
+          <span>Your name</span>
+          <input type="text" name="name" required>
+        </label>
+        <label>
+          <span>Your phone</span>
+          <input type="tel" name="phone">
+        </label>
+        <label>
+          <span>Your e‑mail</span>
+          <input type="email" name="email" required>
+        </label>
+        <label class="full">
+          <span>Message</span>
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <div class="form-actions">
+          <button class="btn" type="submit">SEND MESSAGE</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container tiny">© 2025 TURA — Minimal Portfolio</div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
